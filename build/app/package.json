@@ -1,0 +1,15 @@
+{
+  "name": "dm-dashboard",
+  "version": "1.0.0",
+  "main": "./dist/main/main.js",
+  "author": {
+    "name": "Odin94"
+  },
+  "scripts": {
+    "electron-rebuild": "node -r ../../.erb/scripts/babel-register.js ../../.erb/scripts/electron-rebuild.js",
+    "link-modules": "node -r ../../.erb/scripts/babel-register.js ../../.erb/scripts/link-modules.js",
+    "postinstall": "yarn electron-rebuild && yarn link-modules"
+  },
+  "license": "GPL-3.0-or-later",
+  "dependencies": {}
+}
