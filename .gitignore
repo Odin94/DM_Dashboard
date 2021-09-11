@@ -1,2 +1,4 @@
 node_modules
 dist
+audio_files/*
+!audio_files/.gitkeep
