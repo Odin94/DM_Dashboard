@@ -1,9 +1,11 @@
+import { AudioThing } from 'main/audio';
 import React from 'react';
 import { MemoryRouter as Router, Switch, Route } from 'react-router-dom';
 import icon from '../../assets/icon.svg';
 import './App.global.css';
 
 const Hello = () => {
+  new AudioThing("")
   return (
     <div>
       <div className="Hello">
