@@ -1,6 +1,8 @@
 const { contextBridge, ipcRenderer } = require('electron');
+const glob = require("glob-promise");
 
 contextBridge.exposeInMainWorld('electron', {
+  glob: glob,
   ipcRenderer: {
     myPing() {
       ipcRenderer.send('ipc-example', 'ping');

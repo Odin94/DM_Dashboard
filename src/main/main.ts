@@ -80,6 +80,9 @@ const createWindow = async () => {
     height: 728,
     icon: getAssetPath('icon.png'),
     webPreferences: {
+      nodeIntegration: false,
+      enableRemoteModule: true,
+      contextIsolation: true,
       preload: path.join(__dirname, 'preload.js'),
     },
   });
