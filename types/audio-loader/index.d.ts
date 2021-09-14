@@ -8,9 +8,20 @@ import { URL } from 'url';
  * @param cb A callback that is executed when the source is loaded
  */
 declare function audioLoad(
-    source: audioLoad.Source | Array<audioLoad.Source> | Object, 
-    options?: audioLoad.Options, cb?: (err: Error | null, data: AudioBuffer | Array<AudioBuffer> | Record<string, AudioBuffer>) => void
+    source: audioLoad.Source | Object, 
+    options: audioLoad.Options, 
+    cb: (err: Error | null, data: AudioBuffer | Array<AudioBuffer> | Record<string, AudioBuffer>) => void
 ): void;
+
+declare function audioLoad(
+    source: string[], 
+    options?: audioLoad.Options
+): Promise<AudioBuffer[]>;
+
+declare function audioLoad(
+    source: string, 
+    options?: audioLoad.Options
+): Promise<AudioBuffer>;
 
 declare namespace audioLoad {
     type Source = URL | Path | ArrayBuffer | Buffer | Promise<Source>
