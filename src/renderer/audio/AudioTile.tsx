@@ -11,10 +11,14 @@ export default function AudioTile({ fileNames, fileIndex }: AudioTileProps) {
     // TODO: Test & add playback-status (playing/paused)
     return(
         <div>
-            <button onClick={() => {audio.play(); console.log("playing " + audio)}}>{ fileNames[fileIndex] }</button>
+            <button onClick={() => {toggleAudio(audio); console.log("playing " + audio)}}>{ fileNames[fileIndex] }</button>
         </div>
     )
 }
+
+const toggleAudio = (audio: HTMLAudioElement) => {
+    audio.paused ? audio.play() : audio.pause();
+};
 
 type AudioTileProps = {
     fileNames: string[],
