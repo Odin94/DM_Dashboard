@@ -33,6 +33,15 @@ export default function AudioTile({ fileNames, fileIndex }: AudioTileProps) {
 					label={audio.paused ? '' : `${audio.currentTime?.toFixed(1)}s / ${audio.duration?.toFixed(1)}s`}
 				/>
 			</div>
+			<button
+				onClick={() => {
+					audio.pause();
+					audio.currentTime = 0;
+					setTimePercentage(0.0);
+				}}
+			>
+				Reset
+			</button>
 		</div>
 	);
 }
