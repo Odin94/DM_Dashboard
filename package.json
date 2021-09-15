@@ -220,6 +220,7 @@
     "yarn-deduplicate": "^3.1.0"
   },
   "dependencies": {
+    "bootstrap": "^5.1.1",
     "electron-debug": "^3.2.0",
     "electron-log": "^4.3.5",
     "electron-updater": "^4.3.8",
@@ -227,6 +228,7 @@
     "glob-promise": "^4.2.0",
     "history": "4.x.x",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.6.3",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
     "regenerator-runtime": "^0.13.5"

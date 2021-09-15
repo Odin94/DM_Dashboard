@@ -1,7 +1,9 @@
-import React from 'react';
-import { MemoryRouter as Router, Switch, Route } from 'react-router-dom';
-import icon from '../../assets/icon.svg';
 import './App.global.css';
+
+import React from 'react';
+import { MemoryRouter as Router, Route, Switch } from 'react-router-dom';
+
+import icon from '../../assets/icon.svg';
 import AudioContainer from './audio/AudioContainer';
 
 const Hello = () => {
