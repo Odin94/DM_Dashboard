@@ -28,7 +28,7 @@ export default function AudioContainer({ fileNamesPromise }: AudioContainerProps
 
 	return (
 		<div className="wrapper">
-			<Container>
+			<Container fluid={true}>
 				{rows.map((row: any[], index: number) => {
 					return <Row key={index}>{row}</Row>;
 				})}
