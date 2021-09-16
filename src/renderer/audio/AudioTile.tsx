@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ProgressBar, Button, Row, Col } from 'react-bootstrap';
+import { ProgressBar } from 'react-bootstrap';
 
 export default function AudioTile({ fileNames, fileIndex }: AudioTileProps) {
 	const [ audio, setAudio ] = useState({} as HTMLAudioElement);
@@ -16,7 +16,6 @@ export default function AudioTile({ fileNames, fileIndex }: AudioTileProps) {
 		setTimePercentage(percent);
 	};
 
-	// TODO: Test & add playback-status (playing/paused)
 	return (
 		<div>
 			<button
