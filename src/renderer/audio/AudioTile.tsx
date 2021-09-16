@@ -10,9 +10,8 @@ export default function AudioTile({ fileNames, fileIndex }: AudioTileProps) {
 		setAudio(loadedAudio);
 	}, []);
 
-	audio.ontimeupdate = (ev: Event) => {
+	audio.ontimeupdate = (_ev: Event) => {
 		const percent = audio.currentTime / audio.duration * 100;
-		console.log(percent);
 		setTimePercentage(percent);
 	};
 
