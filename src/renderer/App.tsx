@@ -10,7 +10,7 @@ const AppComponent = () => {
 
 	return (
 		<div>
-			<h1>DM Dashboard</h1>
+			<h1 style={{color: "white", margin: "auto", padding: "20px", textAlign: "center"}}>DM Dashboard</h1>
 			<AudioContainer fileNamesPromise={fileNamesPromise} />
 		</div>
 	);
