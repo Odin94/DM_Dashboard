@@ -3,57 +3,75 @@
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
 
-.progress-bar[aria-valuenow="0"] {
-	transition: none;
+:root {
+	--white: #fff;
+	--active-color: #00aeb0;
 }
 
-body {
-	position: relative;
-	color: white;
-	height: 100vh;
-	background: linear-gradient(200.96deg, #fedc2a -29.09%, #dd5789 51.77%, #7a2c9e 129.35%);
-	font-family: sans-serif;
-	overflow-y: hidden;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: Arial, Helvetica, sans-serif;
+	height: 100%;
+	background: var(--active-color);
+	transition: background 0.4s ease;
+}
+
+#root {
+	font-family: Arial, Helvetica, sans-serif;
+	height: 100%;
+	background: var(--active-color);
+	transition: background 0.4s ease;
 }
 
 button {
-	background-color: white;
-	padding: 10px 20px;
-	border-radius: 10px;
+	background: none;
 	border: none;
-	appearance: none;
-	font-size: 1.3rem;
-	box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.12), 0px 18px 88px -4px rgba(24, 39, 75, 0.14);
-	transition: transform ease-in 0.1s;
 	cursor: pointer;
 }
 
-button:hover {
-	transform: scale(1.05);
+.audio-player {
+	max-width: 350px;
+	border-radius: 20px;
+	padding: 24px;
+	box-shadow: 0 28px 28px rgba(0, 0, 0, 0.2);
+	margin: auto;
+	color: var(--white);
 }
 
-li {
-	list-style: none;
+.artwork {
+	border-radius: 120px;
+	display: block;
+	margin: auto;
+	height: 200px;
+	width: 200px;
 }
 
-a {
-	text-decoration: none;
-	height: fit-content;
-	width: fit-content;
-	margin: 10px;
+.track-info {
+	text-align: center;
+	z-index: 1;
+	position: relative;
 }
 
-a:hover {
-	opacity: 1;
-	text-decoration: none;
+.title {
+	font-weight: 700;
+	margin: 25px;
 }
 
-.Hello {
+.audio-controls {
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 20px 0;
+	justify-content: space-between;
+	width: 75%;
+	margin: 0 auto 15px;
+}
+
+.audio-controls .play img,
+.audio-controls .pause img {
+	color: var(--white);
+}
+
+.audio-controls path {
+	fill: var(--white);
 }

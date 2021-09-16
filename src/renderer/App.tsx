@@ -3,37 +3,15 @@ import './App.global.css';
 import React from 'react';
 import { MemoryRouter as Router, Route, Switch } from 'react-router-dom';
 
-import icon from '../../assets/icon.svg';
 import AudioContainer from './audio/AudioContainer';
 
-const Hello = () => {
-	const fileNamesPromise = (window as BridgedWindow).electron.glob('**/*.@(ogg|mp3|flac|wav)');
+const AppComponent = () => {
+	const fileNamesPromise = (window as BridgedWindow).electron.glob('./audio_files/**/*.@(ogg|mp3|flac|wav)');
 
 	return (
 		<div>
-			<div className="Hello">
-				<img width="200px" alt="icon" src={icon} />
-			</div>
 			<h1>DM Dashboard</h1>
 			<AudioContainer fileNamesPromise={fileNamesPromise} />
-			<div className="Hello">
-				<a href="https://electron-react-boilerplate.js.org/" target="_blank" rel="noreferrer">
-					<button type="button">
-						<span role="img" aria-label="books">
-							📚
-						</span>
-						Read our docs
-					</button>
-				</a>
-				<a href="https://github.com/sponsors/electron-react-boilerplate" target="_blank" rel="noreferrer">
-					<button type="button">
-						<span role="img" aria-label="books">
-							🙏
-						</span>
-						Donate
-					</button>
-				</a>
-			</div>
 		</div>
 	);
 };
@@ -42,7 +20,7 @@ export default function App() {
 	return (
 		<Router>
 			<Switch>
-				<Route path="/" component={Hello} />
+				<Route path="/" component={AppComponent} />
 			</Switch>
 		</Router>
 	);

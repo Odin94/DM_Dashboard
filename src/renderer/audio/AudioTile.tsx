@@ -1,52 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import { ProgressBar } from 'react-bootstrap';
+import React, { useEffect, useState, useRef } from 'react';
+import AudioControls from './AudioControls';
 
 export default function AudioTile({ fileNames, fileIndex }: AudioTileProps) {
-	const [ audio, setAudio ] = useState({} as HTMLAudioElement);
-	const [ timePercentage, setTimePercentage ] = useState(0.0);
+	const [ isPlaying, setIsPlaying ] = useState(false);
 
-	useEffect(() => {
-		const loadedAudio = new Audio(fileNames[fileIndex]);
-		setAudio(loadedAudio);
-	}, []);
+	const audioRef = useRef(new Audio(fileNames[fileIndex]));
 
-	audio.ontimeupdate = (_ev: Event) => {
-		const percent = audio.currentTime / audio.duration * 100;
-		setTimePercentage(percent);
+	useEffect(
+		() => {
+			if (isPlaying) {
+				audioRef.current.play();
+			} else {
+				audioRef.current.pause();
+			}
+		},
+		[ isPlaying ]
+	);
+
+	const { duration } = audioRef.current;
+	const title = fileNames[fileIndex].split('/').pop();
+
+	const reset = () => {
+		setIsPlaying(false);
+		audioRef.current.currentTime = 0;
+	};
+
+	const replay = () => {
+		audioRef.current.currentTime = 0;
+		setIsPlaying(true);
 	};
 
 	return (
-		<div>
-			<button
-				onClick={() => {
-					toggleAudio(audio);
-				}}
-			>
-				{fileNames[fileIndex]}
-			</button>
-			<div className="progressBar">
-				<ProgressBar
-					style={{transitionDuration: "50ms"}}
-					now={timePercentage}
-					label={audio.paused ? '' : `${audio.currentTime?.toFixed(1)}s / ${audio.duration?.toFixed(1)}s`}
+		<div className="audio-player">
+			<div className="track-info">
+				<img
+					className="artwork"
+					src={'./assets/images/mountain_pixabay.jpg'}
+					alt={`track artwork for ${title}`}
+				/>
+				<h3 className="title">{title}</h3>
+				<AudioControls
+					isPlaying={isPlaying}
+					onResetClick={reset}
+					onReplayClick={replay}
+					onPlayPauseClick={setIsPlaying}
 				/>
 			</div>
-			<button
-				onClick={() => {
-					audio.pause();
-					audio.currentTime = 0;
-					setTimePercentage(0.0);
-				}}
-			>
-				Reset
-			</button>
 		</div>
 	);
 }
-
-const toggleAudio = (audio: HTMLAudioElement) => {
-	audio.paused ? audio.play() : audio.pause();
-};
 
 type AudioTileProps = {
 	fileNames: string[];

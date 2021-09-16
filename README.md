@@ -7,3 +7,7 @@ An electron dashboard for pen&paper DMs for playing music and sounds (and possib
 ```bash
 yarn start
 ```
+
+
+## Attributions
+* Some icons made by [Roundicons](https://roundicons.com), [Freepik](https://www.freepik.com), [Smartline](https://www.flaticon.com/authors/smartline) from [Flaticon](https://www.flaticon.com)
