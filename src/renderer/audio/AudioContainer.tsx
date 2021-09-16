@@ -14,11 +14,11 @@ export default function AudioContainer({ fileNamesPromise }: AudioContainerProps
 
 	const rows: any[] = [];
 	fileNames.forEach((_fileName: string, fileIndex: number) => {
-		if (fileIndex % 3 == 0) {
+		if (fileIndex % 4 == 0) {
 			rows.push([]);
 		}
 
-		const rowIndex = Math.floor(fileIndex / 3);
+		const rowIndex = Math.floor(fileIndex / 4);
 		rows[rowIndex].push(
 			<Col key={fileIndex + 100 * rowIndex} style={{ margin: '15px' }}>
 				<AudioTile key={fileIndex + 100 * rowIndex} fileNames={fileNames} fileIndex={fileIndex} />
