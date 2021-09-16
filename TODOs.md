@@ -1,10 +1,7 @@
 ## High Prio
 
-* Load audio files from `audio_files` folder
+* Make it look ok
 * Allow selecting audio file
-* Allow playing audio file
-* Allow loading several audio files at once
-* Allow playing several audio files simultaneously
 
 ## Eventually
 
@@ -13,3 +10,10 @@
 * Add Hue control
 * Add fancy plugin stuff, like NPC generators, name generators, dice roller, random nummer generator..
 * Allow playing audio from spotify or youtube
+
+
+## Done
+* Load audio files from `audio_files` folder
+* Allow playing audio file
+* Allow loading several audio files at once
+* Allow playing several audio files simultaneously
