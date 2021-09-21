@@ -35,15 +35,13 @@ export default function DropdownMenu({ fileNames, selectFile }: DropdownMenuProp
 				<ul>
 					{fileNames.map((fileName: string, fileIndex: number) => {
 						return (
-							<li>
-								<button
-									onClick={() => {
-										selectFile(fileIndex);
-                                        setIsActive(false);
-									}}
-								>
-									{trimFileName(fileName)}
-								</button>
+							<li
+								onClick={() => {
+									selectFile(fileIndex);
+									setIsActive(false);
+								}}
+							>
+								<button>{trimFileName(fileName)}</button>
 							</li>
 						);
 					})}
