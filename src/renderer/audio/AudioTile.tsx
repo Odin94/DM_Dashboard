@@ -7,7 +7,6 @@ export default function AudioTile({ fileNames, fileIndex }: AudioTileProps) {
 
 	const audioRef = useRef(new Audio(fileNames[fileIndex]));
 	const intervalRef = useRef<NodeJS.Timeout>();
-	const isReady = useRef(false);
 
 	useEffect(
 		() => {
