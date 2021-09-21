@@ -1,12 +1,11 @@
 ## High Prio
-
-* Allow selecting audio file
+* Hotkeys
+* Volume control
+* "stop all" button
 
 ## Eventually
 
 * Persist selection of audio files (to keep order)
-* Hotkeys
-* Volume control
 * Custom, but matching, color for each tile?  (or just tabs?)
 * Custom image for each track?
 * Add "spaces" (like multiple desktops, but for different sub-folders from `audio_files`?)
@@ -23,3 +22,4 @@
 * Allow loading several audio files at once
 * Allow playing several audio files simultaneously
 * Make it look ok 
+* Allow selecting audio file
