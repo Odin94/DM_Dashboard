@@ -1,12 +1,25 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { trimFileName } from 'renderer/utils';
+
+import DropdownMenu from '../DropdownMenu';
 import AudioControls from './AudioControls';
 
 export default function AudioTile({ fileNames, fileIndex }: AudioTileProps) {
+	const [ selectedFileIndex, setSelectedFileIndex ] = useState(fileIndex);
 	const [ trackProgress, setTrackProgress ] = useState(0);
 	const [ isPlaying, setIsPlaying ] = useState(false);
 
-	const audioRef = useRef(new Audio(fileNames[fileIndex]));
+	const audioRef = useRef(new Audio(fileNames[selectedFileIndex]));
 	const intervalRef = useRef<NodeJS.Timeout>();
+
+	useEffect(
+		() => {
+			reset();
+			audioRef.current.src = fileNames[selectedFileIndex];
+			audioRef.current.load();
+		},
+		[ selectedFileIndex ]
+	);
 
 	useEffect(
 		() => {
@@ -30,7 +43,7 @@ export default function AudioTile({ fileNames, fileIndex }: AudioTileProps) {
 	}, []);
 
 	const { duration } = audioRef.current;
-	const title = fileNames[fileIndex].split('/').pop();
+	const title = trimFileName(fileNames[selectedFileIndex]);
 
 	const reset = () => {
 		setIsPlaying(false);
@@ -103,6 +116,7 @@ export default function AudioTile({ fileNames, fileIndex }: AudioTileProps) {
 					style={{ background: trackStyling }}
 				/>
 			</div>
+			<DropdownMenu fileNames={fileNames} selectFile={(fileIndex: number) => setSelectedFileIndex(fileIndex)} />
 		</div>
 	);
 }
