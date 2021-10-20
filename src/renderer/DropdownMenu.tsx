@@ -35,7 +35,7 @@ export default function DropdownMenu({ fileNames, selectFile }: DropdownMenuProp
 				<ul>
 					{fileNames.map((fileName: string, fileIndex: number) => {
 						return (
-							<li
+							<li key={fileIndex}
 								onClick={() => {
 									selectFile(fileIndex);
 									setIsActive(false);
