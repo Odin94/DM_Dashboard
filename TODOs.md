@@ -1,6 +1,6 @@
 ## High Prio
 * Hotkeys
-* Volume control
+* Pitch shifting
 * "stop all" button
 
 ## Eventually
@@ -17,6 +17,7 @@
 * Enable strict null checks
 
 ## Done
+* Volume control
 * Load audio files from `audio_files` folder
 * Allow playing audio file
 * Allow loading several audio files at once
