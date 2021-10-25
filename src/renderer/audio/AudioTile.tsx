@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { trimFileName } from 'renderer/utils';
+import useMousetrap from "react-hook-mousetrap"
 
 import DropdownMenu from '../DropdownMenu';
 import AudioControls from './AudioControls';
 
-export default function AudioTile({ fileNames, fileIndex }: AudioTileProps) {
+export default function AudioTile({ fileNames, fileIndex, tileIndex }: AudioTileProps) {
 	const [ selectedFileIndex, setSelectedFileIndex ] = useState(fileIndex);
 	const [ trackProgress, setTrackProgress ] = useState(0);
 	const [ isPlaying, setIsPlaying ] = useState(false);
@@ -47,6 +48,11 @@ export default function AudioTile({ fileNames, fileIndex }: AudioTileProps) {
 	useEffect(() => {
 		audioRef.current.volume = volume
 	}, [ volume ])
+
+	const hotkey = hotkeyList[tileIndex] || "-";
+	useMousetrap(hotkey, () => {
+		setIsPlaying(!isPlaying);
+	});
 
 	const { duration } = audioRef.current;
 	const title = trimFileName(fileNames[selectedFileIndex]);
@@ -148,7 +154,10 @@ export default function AudioTile({ fileNames, fileIndex }: AudioTileProps) {
 	);
 }
 
+const hotkeyList = "1234qwerasdfyxcv5678tzuighjkbnm,90opl".split('');
+
 type AudioTileProps = {
 	fileNames: string[];
 	fileIndex: number;
+	tileIndex: number;
 };

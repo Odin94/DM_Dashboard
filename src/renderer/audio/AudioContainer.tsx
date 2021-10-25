@@ -21,7 +21,7 @@ export default function AudioContainer({ fileNamesPromise }: AudioContainerProps
 		const rowIndex = Math.floor(fileIndex / 4);
 		rows[rowIndex].push(
 			<Col key={fileIndex + 100 * rowIndex} style={{ margin: '15px' }}>
-				<AudioTile key={fileIndex + 100 * rowIndex} fileNames={fileNames} fileIndex={fileIndex} />
+				<AudioTile key={fileIndex + 100 * rowIndex} fileNames={fileNames} fileIndex={fileIndex} tileIndex={fileIndex} />
 			</Col>
 		);
 	});
