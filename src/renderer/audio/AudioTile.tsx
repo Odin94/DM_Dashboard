@@ -106,6 +106,7 @@ export default function AudioTile({ fileNames, fileIndex, tileIndex }: AudioTile
 
 	return (
 		<div className="audio-player">
+			<div style={{position: "absolute"}}>{hotkey}</div>
 			<div className="track-info">
 				<img
 					className="artwork"
