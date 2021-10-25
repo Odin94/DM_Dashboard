@@ -1,6 +1,7 @@
 ## High Prio
 * Pitch shifting
 * "stop all" button
+* Make audio tiles smaller
 
 ## Eventually
 
